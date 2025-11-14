@@ -1,0 +1,3 @@
+[submodule "05_XENO_VSC_RX_TX/bumble"]
+	path = 05_XENO_VSC_RX_TX/bumble
+	url = git@github.com:XenoKovah/bumble.git
