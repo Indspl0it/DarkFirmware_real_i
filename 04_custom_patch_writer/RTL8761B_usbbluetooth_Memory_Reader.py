@@ -31,6 +31,7 @@ def find_realtek_device():
         # if (c.vendor_id == 0x2550 and c.product_id == 0x8761):	# for when you only want to test with a specific device
         if( (c.vendor_id == 0x0bda and c.product_id == 0xa728) or \
             (c.vendor_id == 0x0bda and c.product_id == 0xa729) or \
+            (c.vendor_id == 0x2c0a and c.product_id == 0x8761) or \
             (c.vendor_id == 0x2550 and c.product_id == 0x8761) or \
             (c.vendor_id == 0x2357 and c.product_id == 0x0604)):
             return c
