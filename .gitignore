@@ -1,1 +1,4 @@
 *.DS_Store
+*.o
+__pycache__/
+final_patched_poc_fw.bin
