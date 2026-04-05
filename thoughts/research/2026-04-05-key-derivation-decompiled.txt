@@ -1,0 +1,161 @@
+
+============================================================
+FUN_800254b0_key_derive @ 800254b0
+============================================================
+
+void FUN_800254b0(uint param_1,int param_2,uint param_3,int param_4)
+
+{
+  byte bVar1;
+  undefined *puVar2;
+  int iVar3;
+  byte *pbVar4;
+  int iVar5;
+  undefined1 auStack_28 [16];
+  uint local_18;
+  
+  local_18 = param_3 & 0xff;
+  bVar1 = *(byte *)(param_4 + 4) >> 1;
+  param_4 = param_4 + 5;
+  iVar3 = 0;
+  do {
+    pbVar4 = (byte *)(param_4 + iVar3);
+    iVar5 = param_2 + iVar3;
+    iVar3 = iVar3 + 1;
+    *pbVar4 = *(byte *)(iVar5 + 0x51) ^ *pbVar4;
+  } while (iVar3 < 0x10);
+  if (bVar1 == 9) {
+    puVar2 = PTR_big_ol_struct_ARRAY_8012dc50_0__BDADDR_0__80025520;
+    FUN_8002cfac(param_4,puVar2 + (param_1 & 0xffff) * 0x2b8);
+  }
+  else {
+    optimized_memcpy(auStack_28,param_4,0x10);
+  }
+  FUN_80024c08(param_1 & 0xffff,param_2,local_18,auStack_28,bVar1);
+  return;
+}
+
+
+
+============================================================
+FUN_80023fb8_after_keycopy @ 80023fb8
+============================================================
+
+void FUN_80023fb8(byte *param_1,uint param_2)
+
+{
+  undefined *puVar1;
+  
+  puVar1 = PTR_DAT_80023fcc;
+  *param_1 = puVar1[(uint)*param_1 * 0x10 + (param_2 & 0xff)];
+  return;
+}
+
+
+
+============================================================
+FUN_80025164_auth_step @ 80025164
+============================================================
+
+void FUN_80025164(uint param_1,int param_2,undefined4 param_3)
+
+{
+  big_ol_struct *pbVar1;
+  undefined *puVar2;
+  undefined1 local_30 [2];
+  undefined1 auStack_2e [22];
+  undefined1 *local_18;
+  
+  local_18 = auStack_2e;
+  param_1 = param_1 & 0xffff;
+  local_30[0] = 0xb;
+  FUN_8002c838(local_18);
+  if (*(char *)(param_2 + 0x214) == '\0') {
+    if (*(char *)(param_2 + 0x1f1) == '\x06') {
+      puVar2 = PTR_big_ol_struct_ARRAY_8012dc50_0__BDADDR_0__800251f4;
+      FUN_8002d00c(param_2 + 0x61,local_18,puVar2 + param_1 * 0x2b8,param_2 + 0xba,param_2 + 0xc2);
+    }
+  }
+  else {
+    pbVar1 = PTR_big_ol_struct_ARRAY_800251f0;
+    if (pbVar1[param_1].bdaddr_random_ == '\0') {
+      param_2 = param_2 + 0x91;
+    }
+    else {
+      param_2 = param_2 + 0x81;
+    }
+    optimized_memcpy(param_2,local_18,0x10);
+  }
+  FUN_80024470(param_1,local_30,0x12,param_3);
+  return;
+}
+
+
+
+============================================================
+FUN_8002405c_min_keysize @ 8002405c
+============================================================
+
+undefined1 FUN_8002405c(int param_1,byte *param_2)
+
+{
+  undefined *puVar1;
+  uint uVar2;
+  
+  if (((*(char *)(param_1 + 0xd0) != '\0') && (uVar2 = *param_2 - 0x14 & 0xff, uVar2 < 0xc)) &&
+     (puVar1 = PTR_DAT_80024084, puVar1[uVar2] != '\0')) {
+    puVar1 = PTR_DAT_80024088;
+    return puVar1[2];
+  }
+  puVar1 = PTR_DAT_80024088;
+  return puVar1[3];
+}
+
+
+
+============================================================
+FUN_80024050_max_keysize @ 80024050
+============================================================
+
+undefined1 FUN_80024050(void)
+
+{
+  undefined *puVar1;
+  
+  puVar1 = PTR_DAT_80024058;
+  return puVar1[2];
+}
+
+
+
+============================================================
+LE_Commands_switch @ 80044674
+============================================================
+
+void HCI_CMD_OGF_08__LE_Commands__big_switch(ushort *param_1)
+
+{
+  undefined *puVar1;
+  undefined *puVar2;
+  uint uVar3;
+  
+  uVar3 = *param_1 & 0x3ff;
+  puVar1 = PTR_unknown_dat_ref_by_logger_80044724;
+  possible_logging_function__var_args
+            (5,0xcb,&DAT_0000203a,0xd04,0x14,puVar1,uVar3,(char)param_1[1],
+             *(undefined1 *)((int)param_1 + 3),(char)param_1[2],*(undefined1 *)((int)param_1 + 5),
+             (char)param_1[3],*(undefined1 *)((int)param_1 + 7),(char)param_1[4],
+             *(undefined1 *)((int)param_1 + 9),(char)param_1[5],*(undefined1 *)((int)param_1 + 0xb),
+             (char)param_1[6],*(undefined1 *)((int)param_1 + 0xd),(char)param_1[7],
+             *(undefined1 *)((int)param_1 + 0xf),(char)param_1[8],
+             *(undefined1 *)((int)param_1 + 0x11),(char)param_1[9],
+             *(undefined1 *)((int)param_1 + 0x13),(char)param_1[10]);
+  puVar1 = PTR_base_of_0x1ac_struct_array_0xA_large2_80044728;
+  puVar2 = PTR_PTR_8004472c;
+  uVar3 = uVar3 & -(uint)(uVar3 <= (byte)puVar1[0x15dd]);
+  (**(code **)(puVar2 + (uVar3 & (int)(-*(uint *)(puVar2 + uVar3 * 4) |
+                                      *(uint *)(puVar2 + uVar3 * 4)) >> 0x1f) * 4))(param_1);
+  return;
+}
+
+
